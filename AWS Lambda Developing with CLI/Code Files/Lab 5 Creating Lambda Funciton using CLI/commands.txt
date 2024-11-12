@@ -1,0 +1,48 @@
+Deploy Node.js Lambda functions with .zip file archives
+
+Run Command:
+mac
+	zip function.zip index.js
+windows
+	Compress-Archive index.js function.zip
+
+
+Create AWS Lambda function with .zip file using AWS CLI
+
+AWS Lambda CLI Refence Documentation
+https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lambda/index.html
+
+Get Role:
+aws iam get-role --role-name lambda-exec
+
+Run Command:
+
+windows:
+aws lambda create-function `
+    --function-name my-function2 `
+    --runtime nodejs18.x `
+    --zip-file fileb://function.zip `
+    --handler index.handler `
+    --role arn:aws:iam::878893308172:role/lambda-exec
+
+mac:
+aws lambda create-function \
+    --function-name my-function2 \
+    --runtime nodejs18.x \
+    --zip-file fileb://function.zip \
+    --handler index.handler \
+    --role arn:aws:iam::878893308172:role/lambda-exec
+
+Invoke Lambda functions with event.json using AWS CLI
+
+
+Invoke Command:
+aws lambda invoke --function-name my-function2 --cli-binary-format raw-in-base64-out --payload file://event.json response.json
+
+Multiline char 
+	    for windows = `
+	    for mac = \
+
+windows:
+
+

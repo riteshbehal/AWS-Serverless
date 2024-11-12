@@ -1,0 +1,20 @@
+Create Execution Role for AWS Lambda functions with AWS CLI
+
+Run Command:
+aws iam create-role --role-name lambda-exec --assume-role-policy-document file://trust-policy.json
+
+windows:
+aws iam create-role `
+	--role-name lambda-exec `
+	--assume-role-policy-document file://trust-policy.json
+
+-------
+AWSLambdaBasicExecutionRole managed policy:
+
+Run Command:
+aws iam attach-role-policy --role-name lambda-exec --policy-arn arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+
+windows:
+aws iam attach-role-policy `
+	--role-name lambda-exec `
+	--policy-arn arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole

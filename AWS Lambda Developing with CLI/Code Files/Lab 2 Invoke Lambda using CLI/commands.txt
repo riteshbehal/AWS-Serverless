@@ -1,0 +1,22 @@
+Invoking Lambda functions with the AWS CLI
+
+Run Commands :
+aws lambda list-functions
+aws lambda get-function --function-name myfirst-function
+
+Invoke Command:windows
+
+aws lambda invoke `
+	--function-name myfirst-function `
+	--cli-binary-format raw-in-base64-out `
+	--payload '{ "key": "value" }' `
+	response.json
+
+    
+    
+    mac
+aws lambda invoke \
+	--function-name my-function \
+	--cli-binary-format raw-in-base64-out \
+	--payload '{ ""key"": ""value"" }' \
+	response.json    
